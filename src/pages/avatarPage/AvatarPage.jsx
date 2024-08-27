@@ -10,7 +10,8 @@ import { maleOriginalArr,femaleOriginalArr } from "../../utils/avatar/originalIm
 
 import { base64 } from "../../utils/base64";
 
-import select from "./../../assets/avatar/select.png";
+import select from './../../assets/select1.png'
+import Header from "../../components/header/Header";
 
 export default function AvatarPage({
   setGeneratedImg,
@@ -23,8 +24,11 @@ export default function AvatarPage({
   const [originalImg, setOriginalImg] = useState();
   const [selectedImageIndex, setSelectedImageIndex] = useState();
   const [cards, setCards] = useState([]);
-  // const [gender,setGender]=useState('female')
   
+const horiImgsIdx = [3,4,5,6];
+const isHoriImg=(idx)=>{
+  return horiImgsIdx.includes(idx);
+}
 
   console.log(capturedImg);
 
@@ -86,6 +90,8 @@ export default function AvatarPage({
       });
   };
 
+
+
   // submitting the selected image and post request to api
   const handleSubmit = () => {
     // console.log("submitting selected avatar");
@@ -130,13 +136,14 @@ export default function AvatarPage({
 
   return (
     <div className={`flex-col-center ${styles.AvatarPage}`}>
+      <Header />
       <h1>CHOOSE A TEMPLATE</h1>
 
-      <main className={`flex-row-center ${styles.main}`}>
-        {cards?.map((img, index) => (
+      <main className={`flex-col-center ${styles.main}`}>
+        {cards?.map((img, index) =>  (
           <div
             key={index}
-            className={`flex-col-center ${styles.singleImageContainer}`}
+            className={`flex-col-center ${styles.singleImageContainer} ${isHoriImg(index) ? `${styles.horiImg}`:''}`}
             onClick={() => {
               setSelectedImageIndex(index);
               /* setSelectedImage(filterOriginalImg(index)); */

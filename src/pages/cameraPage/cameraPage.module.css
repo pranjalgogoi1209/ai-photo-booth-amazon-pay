@@ -1,7 +1,7 @@
 .CameraPage {
   /* border: 1px solid black; */
   height: calc(100dvh - 36.5vw);
-  padding: 5vw 0;
+  /* padding: 5vw 0; */
   gap: 15vw;
   justify-content: flex-start !important;
   .main {
@@ -44,7 +44,11 @@
   }
 
   .footer {
+    width: 79%;
     .foot {
+      width: 100%;
+      justify-content: space-between !important;
+      /* border: 2px solid red; */
       gap: 2vw;
     }
   }

@@ -1,14 +1,24 @@
 import React from "react";
 import styles from "./header.module.css";
 
-import header from "./../../assets/header/Logo.png";
+import amazonLogo from "./../../assets/header/logo-white.png";
+import header from './../../assets/header/header.png'
+import circleLogo from './../../assets/header/pay-icon.png'
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Header() {
-  return (
-    <div className={`flex-row-center ${styles.Header}`}>
-      <div className={`flex-row-center ${styles.imgContainer}`}>
-        <img src={header} alt="logo" />
-      </div>
+export default function Header({title}) {
+  const navigate = useNavigate();
+  const location = useLocation();
+ return location.pathname==='/'? (<div className={`flex-col-center ${styles.Header}`}>
+    <div className={`flex-row-center ${styles.imgContainer}`}>
+      <img src={amazonLogo} alt="logo" />
     </div>
-  );
+    <div className={`flex-col-center ${styles.titleImage}`}>
+      <img src={header} alt="" />
+    </div>
+  </div> ) : ( <div className={`flex-col-center ${styles.componentHeader}`}>
+      <div className={`flex-col-center ${styles.logo}`}>
+        <img src={circleLogo} alt="" />
+      </div>
+    </div>);
 }

@@ -20,14 +20,13 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Header />
-
+    
       <Routes>
         {/* home-page */}
         <Route path="/" element={<HomePage />} />
 
         {/* gender page */}
-           <Route path="/gender" element={<GenderPage setGender={setGender} />} />
+           <Route path="/gender" element={<GenderPage setGender={setGender} gender={gender}/>} />
 
         {/* camera-page */}
         <Route

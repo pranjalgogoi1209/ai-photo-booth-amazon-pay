@@ -50,7 +50,7 @@ body {
 
 h1 {
   color: var(--textColor);
-  font-size: 6.5vw;
+  font-size: 7vw;
   text-align: center;
   line-height: 10vw;
 }
@@ -107,15 +107,15 @@ button {
 }
 
 .btn1 {
-  color: var(--textColor);
+  /* color: var(--textColor); */
   width: 35vw;
   font-size: 5.5vw;
   font-weight: 600;
   padding: 0.8vw 0;
   border: 0.3vw solid var(--textColor);
-  border-radius: 5vw;
+  border-radius: 0.8vw;
   color: #fff;
-  background-color: var(--textColor);
+  background-color: #333e47;
   /* background: linear-gradient(
     to right,
     var(--themeColor1) 0%,
@@ -123,6 +123,11 @@ button {
     var(--themeColor2) 60%,
     var(--themeColor3) 100%
   ); */
+}
+
+.btn1:disabled{
+  color: #333e4783;
+  background-color:transparent;
 }
 
 .btn2 {

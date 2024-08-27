@@ -1,7 +1,7 @@
 .HomePage {
   /* border: 1px solid black; */
-  height: calc(100dvh - 36.5vw);
-  padding: 5vw 0;
+  height: calc(100dvh - 30.5vh);
+  /* padding: 5vw 0; */
   gap: 5vw;
   justify-content: flex-start !important;
   .avatarContainer {

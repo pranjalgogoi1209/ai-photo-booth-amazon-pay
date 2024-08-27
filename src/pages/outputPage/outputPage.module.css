@@ -1,7 +1,7 @@
 .OutputPage {
-  height: calc(100dvh - 36.5vw);
-  padding: 5vw 0;
-  gap: 10vw;
+  height: calc(100dvh - 16.5vw);
+  /* padding: 5vw 0; */
+  gap: 7vw;
   /* border: 1px solid #000; */
   justify-content: flex-start !important;
 
@@ -10,21 +10,32 @@
     width: 70vw;
   }
   .generatedImgContainer {
-    gap: 10vw;
+    gap: 8vw;
+    /* border: 2px solid red; */
     .imgContainer {
-      width: 50vw;
-      background: linear-gradient(white, white) padding-box,
+      width: 80vw;
+      border-radius: 2.7vw;
+      overflow: hidden;
+      /* background: linear-gradient(white, white) padding-box,
         linear-gradient(
             to right,
             var(--themeColor1),
             var(--themeColor2),
             var(--themeColor3)
           )
-          border-box;
-      border: 0.5vw solid transparent;
+          border-box; */
+      /* border: 0.5vw solid red; */
     }
     .btnContainer {
-      gap: 2vw;
+      gap: 6vw;
     }
+  }
+}
+
+@media print {
+  .generatedImage{
+      page-break-inside: avoid;
+      max-width: 100%;
+      height: auto;
   }
 }

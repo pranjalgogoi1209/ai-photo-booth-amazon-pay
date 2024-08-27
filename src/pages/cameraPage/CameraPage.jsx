@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Webcam from "react-webcam";
+import Header from "../../components/header/Header";
 
 export default function CameraPage({ setCapturedImg }) {
   const webRef = useRef();
@@ -63,6 +64,7 @@ export default function CameraPage({ setCapturedImg }) {
 
   return (
     <div className={`flex-col-center ${styles.CameraPage}`}>
+      <Header />
       <h1>{isCaptured ? "DO YOU LIKE THIS ?" : "CAPTURE YOUR PHOTO"}</h1>
 
       <main className={`flex-col-center ${styles.main}`}>
@@ -92,17 +94,25 @@ export default function CameraPage({ setCapturedImg }) {
       <footer className={`flex-col-center ${styles.footer}`}>
         {isCaptured ? (
           <div className={`flex-row-center ${styles.foot}`}>
+            <div onClick={(e) => handleRetake(e)}>
+              <button className={`btn1`}>RETAKE</button>
+            </div>
+            
             <div onClick={handleSubmit}>
               <button className={`btn1`}>SUBMIT</button>
             </div>
 
-            <div onClick={(e) => handleRetake(e)}>
-              <button className={`btn1`}>RETAKE</button>
-            </div>
           </div>
         ) : (
+          <div className={`flex-row-center ${styles.foot}`}>
+            <div onClick={(e) => handleRetake(e)}>
+              <button disabled={isCaptured ? false : true} className={`btn1`}>RETAKE</button>
+            </div>
+
           <div onClick={(e) => handleCapture(e)}>
             <button className={`btn1`}>CAPTURE</button>
+          </div>
+          
           </div>
         )}
       </footer>
