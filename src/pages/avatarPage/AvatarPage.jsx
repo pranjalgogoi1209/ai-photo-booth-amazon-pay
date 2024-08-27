@@ -5,8 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate, Link } from "react-router-dom";
 
-import { cardsArr } from "../../utils/avatar/cards";
-import { originalImagesArr } from "../../utils/avatar/originalImages";
+import { maleCardsArr,femaleCardsArr } from "../../utils/avatar/cards";
+import { maleOriginalArr,femaleOriginalArr } from "../../utils/avatar/originalImages";
 
 import { base64 } from "../../utils/base64";
 
@@ -22,20 +22,23 @@ export default function AvatarPage({
   const [selectedImage, setSelectedImage] = useState();
   const [originalImg, setOriginalImg] = useState();
   const [selectedImageIndex, setSelectedImageIndex] = useState();
-  const [cards, setCards] = useState();
+  const [cards, setCards] = useState([]);
+  // const [gender,setGender]=useState('female')
+  
 
-  console.log(capturedImg)
+  console.log(capturedImg);
+
 
   // console.log(cardsArr);
 
-  /*   gender &&
+  //
     useEffect(() => {
       if (gender.toLowerCase() === "female") {
         setCards(femaleCardsArr);
       } else if (gender.toLowerCase() === "male") {
         setCards(maleCardsArr);
       }
-    }, [gender]); */
+    }, [gender]); 
 
   // toast options
   const toastOptions = {
@@ -48,24 +51,24 @@ export default function AvatarPage({
 
   // filtering card image with actual image
   const filterOriginalImg = (index) => {
-    /* if (gender.toLowerCase() === "female") {
+     if (gender.toLowerCase() === "female") {
       console.log("female hai");
-      const filteredActualImgArr = femaleOriginalImagesArr.filter(
+      const filteredActualImgArr = femaleOriginalArr.filter(
         (actualImg, ActualIndex) => ActualIndex === index
       );
       return filteredActualImgArr[0];
     } else if (gender.toLowerCase() === "male") {
       console.log("male hai");
-      const filteredActualImgArr = maleOriginalImagesArr.filter(
+      const filteredActualImgArr = maleOriginalArr.filter(
         (actualImg, ActualIndex) => ActualIndex === index
       );
       return filteredActualImgArr[0];
-    } */
+    } 
 
-    const filteredActualImgArr = originalImagesArr.filter(
-      (actualImg, ActualIndex) => ActualIndex === index
-    );
-    return filteredActualImgArr[0];
+    // const filteredActualImgArr = originalImagesArr.filter(
+    //   (actualImg, ActualIndex) => ActualIndex === index
+    // );
+    // return filteredActualImgArr[0];
   };
 
   // image uploading on server
@@ -130,7 +133,7 @@ export default function AvatarPage({
       <h1>CHOOSE A TEMPLATE</h1>
 
       <main className={`flex-row-center ${styles.main}`}>
-        {cardsArr?.map((img, index) => (
+        {cards?.map((img, index) => (
           <div
             key={index}
             className={`flex-col-center ${styles.singleImageContainer}`}
@@ -145,7 +148,7 @@ export default function AvatarPage({
             <div className={styles.parent}>
               <div
                 className={`${styles.imgContainer} ${
-                  index === 3 ? styles.exception : ""
+                  index === 3 ? '' : ""
                 }`}
               >
                 <img src={img} alt="avatar" />

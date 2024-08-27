@@ -27,7 +27,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
 
         {/* gender page */}
-        {/*    <Route path="/gender" element={<GenderPage setGender={setGender} />} /> */}
+           <Route path="/gender" element={<GenderPage setGender={setGender} />} />
 
         {/* camera-page */}
         <Route

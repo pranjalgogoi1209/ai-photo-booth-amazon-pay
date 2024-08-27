@@ -11,7 +11,8 @@
 
 @font-face {
   font-family: 'amazon amber';
-  src: url('./assets/fonts/Amazon_Ember_Display_Medium.ttf');
+  src: url('./assets/fonts/Amazon_Ember_Bold.ttf');
+  font-weight:bold;
 
 }
 
@@ -39,7 +40,7 @@
 }
 
 body {
-  background-image: url("./../src/assets/bg.png");
+  background-image: url("./../src/assets/BG.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -113,6 +114,8 @@ button {
   padding: 0.8vw 0;
   border: 0.3vw solid var(--textColor);
   border-radius: 5vw;
+  color: #fff;
+  background-color: var(--textColor);
   /* background: linear-gradient(
     to right,
     var(--themeColor1) 0%,

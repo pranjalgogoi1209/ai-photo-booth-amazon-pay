@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./homePage.module.css";
 
 import { Link } from "react-router-dom";
-import { cardsArr } from "../../utils/avatar/cards";
+// import { cardsArr } from "../../utils/avatar/cards";
 
 import one from "./../../assets/home/card01.jpeg";
 import two from "./../../assets/home/card02.jpeg";
@@ -27,7 +27,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      <Link to={"/camera"}>
+      <Link to={"/gender"}>
         <button className={`btn1`}>START</button>
       </Link>
     </div>

@@ -1,9 +1,26 @@
 .GenderPage {
   margin-top: 10vw;
   gap: 15vw;
+  border: 2px solid red;
 
   .selectGenderTxt {
-    width: 50vw;
+    width: 90vw;
+    h2{
+      font-size: 10vw;
+    }
+  }
+
+  .genderContainer{
+    /* border: 2px solid red; */
+    width: 100%;
+    justify-content: space-around;
+    .imgContainer{
+      width: 40vw;
+      border: 2px solid black;
+      img{
+        border-radius: 0.8vw;
+      }
+    }
   }
 
   .genderBtn {
