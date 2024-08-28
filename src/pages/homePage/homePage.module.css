@@ -14,6 +14,11 @@
     gap: 2vw;
     .singleImg {
       width: 23vw;
+      border: 0.5vw solid #000;
+      border-radius: 2vw;
+      img {
+        border-radius: 2vw;
+      }
     }
     .horiImg {
       width: 32vw;
