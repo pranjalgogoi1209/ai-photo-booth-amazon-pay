@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./homePage.module.css";
 
 import { Link } from "react-router-dom";
@@ -13,12 +13,16 @@ import three from "./../../assets/home/card03.jpeg";
 import four from "./../../assets/home/card04.jpeg";
 import Header from "../../components/header/Header";
 
-export default function HomePage() {
+export default function HomePage({ setGender }) {
   const horiImgsIdx = [3, 4, 5, 6];
 
   const isHoriImg = (idx) => {
     return horiImgsIdx.includes(idx);
   };
+
+  useEffect(() => {
+    setGender("");
+  }, []);
 
   return (
     <div className={`flex-col-center ${styles.HomePage}`}>

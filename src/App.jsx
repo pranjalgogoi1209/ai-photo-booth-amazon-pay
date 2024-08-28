@@ -16,13 +16,13 @@ export default function App() {
   const [capturedImg, setCapturedImg] = useState();
   const [generatedImg, setGeneratedImg] = useState();
   const [url, setUrl] = useState();
-  const [gender, setGender] = useState("male");
+  const [gender, setGender] = useState();
 
   return (
     <BrowserRouter>
       <Routes>
         {/* home-page */}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage setGender={setGender} />} />
 
         {/* gender page */}
         <Route

@@ -35,8 +35,8 @@
 
     .close {
       position: absolute;
-      top: 5%;
-      right: 5%;
+      top: 3%;
+      right: 3%;
       width: 8vw;
       cursor: pointer;
       /* color: var(--themeColor1); */
