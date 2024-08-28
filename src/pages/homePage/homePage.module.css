@@ -14,7 +14,7 @@
     gap: 2vw;
     .singleImg {
       width: 23vw;
-      border: 0.5vw solid #000;
+      border: 0.5vw solid #212121;
       border-radius: 2vw;
       img {
         border-radius: 2vw;
