@@ -16,18 +16,19 @@ export default function App() {
   const [capturedImg, setCapturedImg] = useState();
   const [generatedImg, setGeneratedImg] = useState();
   const [url, setUrl] = useState();
-  const [gender, setGender] = useState();
+  const [gender, setGender] = useState("male");
 
   return (
     <BrowserRouter>
-      <Header />
-
       <Routes>
         {/* home-page */}
         <Route path="/" element={<HomePage />} />
 
         {/* gender page */}
-        {/*    <Route path="/gender" element={<GenderPage setGender={setGender} />} /> */}
+        <Route
+          path="/gender"
+          element={<GenderPage setGender={setGender} gender={gender} />}
+        />
 
         {/* camera-page */}
         <Route

@@ -1,9 +1,13 @@
 .CameraPage {
   /* border: 1px solid black; */
-  height: calc(100dvh - 36.5vw);
-  padding: 5vw 0;
-  gap: 15vw;
+  height: 100dvh;
+  background: url("./../../assets/blue-bg.png") center/cover no-repeat;
   justify-content: flex-start !important;
+
+  .cameraPageWrapper {
+    gap: 10vh;
+  }
+
   .main {
     width: 75vw;
     min-height: 58.5vw;
@@ -31,9 +35,9 @@
       }
       .countdown {
         position: absolute;
-        top: 40%;
+        top: 35%;
         left: 48%;
-        color: var(--themeColor3);
+        color: #65c3cb;
         font-size: 8.5vw;
         font-weight: 600;
       }
@@ -44,8 +48,12 @@
   }
 
   .footer {
+    width: 100%;
+    /* border: 1px solid black; */
     .foot {
-      gap: 2vw;
+      width: 100%;
+      /* border: 2px solid red; */
+      gap: 4vw;
     }
   }
 }

@@ -6,6 +6,7 @@ import { useReactToPrint } from "react-to-print";
 import Qr from "../../components/qr/Qr";
 import Email from "../../components/email/Email";
 import Loader from "../../components/loader/Loader";
+import Header from "../../components/header/Header";
 
 export default function OutputPage({ generatedImg, url, setUrl }) {
   const printRef = useRef();
@@ -16,15 +17,21 @@ export default function OutputPage({ generatedImg, url, setUrl }) {
   const handlePrint = useReactToPrint({
     content: () => printRef.current,
   });
-  console.log(generatedImg)
+  console.log(generatedImg);
   return (
     <div className={`flex-col-center ${styles.OutputPage}`}>
-      <h1>{generatedImg ? "READY TO DOWNLOAD ?" : "PLEASE WAIT...!"}</h1>
+      <Header />
+      <h1>{generatedImg ? "All Done!" : "PLEASE WAIT...!"}</h1>
 
       {generatedImg ? (
         <div className={`flex-col-center ${styles.generatedImgContainer}`}>
           <div className={styles.imgContainer}>
-            <img ref={printRef} src={generatedImg} alt="generated-image" />
+            <img
+              ref={printRef}
+              className={styles.generatedImg}
+              src={generatedImg}
+              alt="generated-image"
+            />
           </div>
 
           <div className={`flex-row-center ${styles.btnContainer}`}>
@@ -33,26 +40,22 @@ export default function OutputPage({ generatedImg, url, setUrl }) {
               onClick={() => setShowQr(true)}
               // className={`imgContainer ${styles.btn}`}
             >
-              <button className={`btn2`}>QR</button>
+              <button className={`btn1`}>QR</button>
             </div>
 
             {/* email */}
             <div
-              onClick={() => setShowEmail(true)}
+              onClick={() => handlePrint()}
               /* className={`imgContainer ${styles.btn}`} */
             >
               {/*  <img src={emailBtn} alt="generate-qr-button" /> */}
-              <button className={`btn2`}>EMAIL</button>
+              <button className={`btn1`}>PRINT</button>
             </div>
 
             {/* print */}
             {/* <div onClick={handlePrint} className={`imgContainer ${styles.btn}`}>
               <img src={printBtn} alt="generate-qr-button" />
             </div> */}
-
-            <Link to={"/"}>
-              <button className={`btn2`}>HOME</button>
-            </Link>
           </div>
         </div>
       ) : (

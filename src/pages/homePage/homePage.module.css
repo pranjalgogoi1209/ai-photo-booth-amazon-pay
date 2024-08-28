@@ -1,29 +1,28 @@
 .HomePage {
   /* border: 1px solid black; */
-  height: calc(100dvh - 36.5vw);
-  padding: 5vw 0;
+  background: url("./../../assets/dark-bg.png") center/cover no-repeat;
+
+  /* padding: 5vw 0; */
   gap: 5vw;
   justify-content: flex-start !important;
+  height: 100dvh;
   .avatarContainer {
-    /* border: 1px solid #000; */
-    width: 95%;
-    height: 90%;
+    /* border: 1px solid #fff; */
+    width: 85%;
+    height: 60%;
     flex-wrap: wrap;
     gap: 2vw;
     .singleImg {
-      background: linear-gradient(white, white) padding-box,
-        linear-gradient(
-            to right,
-            var(--themeColor1),
-            var(--themeColor2),
-            var(--themeColor3)
-          )
-          border-box;
-      border: 0.5vw solid transparent;
-      width: 29vw;
+      width: 23vw;
     }
-    .exception {
-      margin-top: 10vw;
+    .horiImg {
+      width: 32vw;
     }
+  }
+
+  .startBtn {
+    background-color: var(--themeColor1);
+    color: #3c434b !important;
+    border: none !important;
   }
 }

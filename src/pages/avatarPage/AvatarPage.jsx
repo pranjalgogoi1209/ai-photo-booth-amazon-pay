@@ -5,12 +5,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate, Link } from "react-router-dom";
 
-import { cardsArr } from "../../utils/avatar/cards";
-import { originalImagesArr } from "../../utils/avatar/originalImages";
+import { maleCardsArr, femaleCardsArr } from "../../utils/avatar/cards";
+import {
+  maleOriginalArr,
+  femaleOriginalArr,
+} from "../../utils/avatar/originalImages";
 
 import { base64 } from "../../utils/base64";
 
-import select from "./../../assets/avatar/select.png";
+import select from "./../../assets/select1.png";
+import Header from "../../components/header/Header";
 
 export default function AvatarPage({
   setGeneratedImg,
@@ -22,20 +26,25 @@ export default function AvatarPage({
   const [selectedImage, setSelectedImage] = useState();
   const [originalImg, setOriginalImg] = useState();
   const [selectedImageIndex, setSelectedImageIndex] = useState();
-  const [cards, setCards] = useState();
+  const [cards, setCards] = useState([]);
 
-  console.log(capturedImg)
+  const horiImgsIdx = [3, 4, 5, 6];
+  const isHoriImg = (idx) => {
+    return horiImgsIdx.includes(idx);
+  };
+
+  console.log(capturedImg);
 
   // console.log(cardsArr);
 
-  /*   gender &&
-    useEffect(() => {
-      if (gender.toLowerCase() === "female") {
-        setCards(femaleCardsArr);
-      } else if (gender.toLowerCase() === "male") {
-        setCards(maleCardsArr);
-      }
-    }, [gender]); */
+  //
+  useEffect(() => {
+    if (gender.toLowerCase() === "female") {
+      setCards(femaleCardsArr);
+    } else if (gender.toLowerCase() === "male") {
+      setCards(maleCardsArr);
+    }
+  }, [gender]);
 
   // toast options
   const toastOptions = {
@@ -48,24 +57,22 @@ export default function AvatarPage({
 
   // filtering card image with actual image
   const filterOriginalImg = (index) => {
-    /* if (gender.toLowerCase() === "female") {
+    if (gender.toLowerCase() === "female") {
       console.log("female hai");
-      const filteredActualImgArr = femaleOriginalImagesArr.filter(
+      const filteredActualImgArr = femaleOriginalArr.filter(
         (actualImg, ActualIndex) => ActualIndex === index
       );
+      console.log(filteredActualImgArr[0]);
+
       return filteredActualImgArr[0];
     } else if (gender.toLowerCase() === "male") {
       console.log("male hai");
-      const filteredActualImgArr = maleOriginalImagesArr.filter(
+      const filteredActualImgArr = maleOriginalArr.filter(
         (actualImg, ActualIndex) => ActualIndex === index
       );
+      console.log(filteredActualImgArr[0]);
       return filteredActualImgArr[0];
-    } */
-
-    const filteredActualImgArr = originalImagesArr.filter(
-      (actualImg, ActualIndex) => ActualIndex === index
-    );
-    return filteredActualImgArr[0];
+    }
   };
 
   // image uploading on server
@@ -93,8 +100,11 @@ export default function AvatarPage({
         // console.log("Base64 data:", base64Data);
         setSelectedImage(base64Data);
 
+        console.log("image", capturedImg);
+        console.log("choice", base64Data);
+
         try {
-          console.log('log on try')
+          console.log("log on try");
           axios
             .post("https://52.56.108.15/rec", {
               image: capturedImg.split(",")[1],
@@ -102,7 +112,7 @@ export default function AvatarPage({
               status: "PREMIUM",
             })
             .then(function (response) {
-              console.log('log while generation images')
+              console.log("log while generation images");
               // console.log(response.data.result,'response data');
               // console.log('response from server')
               setGeneratedImg(`data:image/webp;base64,${response.data.result}`);
@@ -127,26 +137,26 @@ export default function AvatarPage({
 
   return (
     <div className={`flex-col-center ${styles.AvatarPage}`}>
+      <Header />
       <h1>CHOOSE A TEMPLATE</h1>
 
-      <main className={`flex-row-center ${styles.main}`}>
-        {cardsArr?.map((img, index) => (
+      <main className={`flex-col-center ${styles.main}`}>
+        {cards?.map((img, index) => (
           <div
             key={index}
-            className={`flex-col-center ${styles.singleImageContainer}`}
+            className={`flex-col-center ${styles.singleImageContainer} ${
+              isHoriImg(index) ? `${styles.horiImg}` : ""
+            }`}
             onClick={() => {
               setSelectedImageIndex(index);
               /* setSelectedImage(filterOriginalImg(index)); */
               const originalImg = filterOriginalImg(index);
               setOriginalImg(originalImg);
-              console.log(originalImagesArr[index])
             }}
           >
             <div className={styles.parent}>
               <div
-                className={`${styles.imgContainer} ${
-                  index === 3 ? styles.exception : ""
-                }`}
+                className={`${styles.imgContainer} ${index === 3 ? "" : ""}`}
               >
                 <img src={img} alt="avatar" />
               </div>

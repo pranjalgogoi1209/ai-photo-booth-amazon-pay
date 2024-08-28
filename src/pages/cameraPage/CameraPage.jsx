@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Webcam from "react-webcam";
+import Header from "../../components/header/Header";
 
 export default function CameraPage({ setCapturedImg }) {
   const webRef = useRef();
@@ -63,49 +64,63 @@ export default function CameraPage({ setCapturedImg }) {
 
   return (
     <div className={`flex-col-center ${styles.CameraPage}`}>
-      <h1>{isCaptured ? "DO YOU LIKE THIS ?" : "CAPTURE YOUR PHOTO"}</h1>
+      <Header />
 
-      <main className={`flex-col-center ${styles.main}`}>
-        <div className={styles.webcamParent}>
-          {!img && (
-            <Webcam
-              ref={webRef}
-              id={styles.webcam}
-              forceScreenshotSourceSize={true}
-            />
-          )}
+      <div className={`flex-col-center ${styles.cameraPageWrapper}`}>
+        <h1>{isCaptured ? "Do You Like This ?" : "Capture Your Face"}</h1>
 
-          {!isCaptured && isCounting && (
-            <h1 className={styles.countdown}>{countdown}</h1>
-          )}
+        <main className={`flex-col-center ${styles.main}`}>
+          <div className={styles.webcamParent}>
+            {!img && (
+              <Webcam
+                ref={webRef}
+                id={styles.webcam}
+                forceScreenshotSourceSize={true}
+              />
+            )}
 
-          {img && (
-            <img
-              src={img}
-              alt="captured image"
-              className={styles.capturedImage}
-            />
-          )}
-        </div>
-      </main>
+            {!isCaptured && isCounting && (
+              <h1 className={styles.countdown}>{countdown}</h1>
+            )}
 
-      <footer className={`flex-col-center ${styles.footer}`}>
-        {isCaptured ? (
-          <div className={`flex-row-center ${styles.foot}`}>
-            <div onClick={handleSubmit}>
-              <button className={`btn1`}>SUBMIT</button>
-            </div>
-
-            <div onClick={(e) => handleRetake(e)}>
-              <button className={`btn1`}>RETAKE</button>
-            </div>
+            {img && (
+              <img
+                src={img}
+                alt="captured image"
+                className={styles.capturedImage}
+              />
+            )}
           </div>
-        ) : (
-          <div onClick={(e) => handleCapture(e)}>
-            <button className={`btn1`}>CAPTURE</button>
-          </div>
-        )}
-      </footer>
+        </main>
+
+        <footer className={`flex-col-center ${styles.footer}`}>
+          {isCaptured ? (
+            <div className={`flex-row-center ${styles.foot}`}>
+              <button onClick={(e) => handleRetake(e)} className={`btn1`}>
+                RETAKE
+              </button>
+
+              <button onClick={handleSubmit} className={`btn1`}>
+                SUBMIT
+              </button>
+            </div>
+          ) : (
+            <div className={`flex-row-center ${styles.foot}`}>
+              <button
+                onClick={(e) => handleRetake(e)}
+                disabled={isCaptured ? false : true}
+                className={`btn1`}
+              >
+                RETAKE
+              </button>
+
+              <button onClick={(e) => handleCapture(e)} className={`btn1`}>
+                CAPTURE
+              </button>
+            </div>
+          )}
+        </footer>
+      </div>
     </div>
   );
 }

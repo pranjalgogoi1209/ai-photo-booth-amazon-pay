@@ -1,34 +1,22 @@
 .AvatarPage {
-  height: calc(100dvh - 36.5vw);
-  padding: 5vw 0;
+  height: 100dvh;
   gap: 4vw;
-  /* border: 1px solid #000; */
   justify-content: flex-start !important;
+  background: url("./../../assets/yellow-bg.jpg") center/cover no-repeat;
   .main {
     /* border: 1px solid #000; */
-    width: 90%;
-    /* height: 80%; */
+    width: 82%;
+    height: 62%;
     flex-wrap: wrap;
-    gap: 1.2vw;
-    justify-content: center;
-    align-items: center;
-    gap: 2vh;
-
+    gap: 1vw;
+    justify-content: center !important;
+    align-items: flex-start !important;
     .singleImageContainer {
-      width: 36vw;
+      width: 23vw;
       overflow: hidden;
       cursor: pointer;
-      /* background: linear-gradient(white, white) padding-box,
-      linear-gradient(
-        to right,
-        var(--themeColor1),
-        var(--themeColor2),
-        var(--themeColor3)
-        )
-        border-box; */
-        border: 0.5vw solid transparent;
-        border: 0.4vw solid #222222;
-        border-radius: 0.8vw;
+      border: 0.4vw solid transparent;
+      border-radius: 2vw;
       &:hover .imgContainer {
         transform: scale(1.05);
       }
@@ -47,6 +35,7 @@
           justify-content: center;
           align-items: center;
         }
+
         .exception {
           margin-bottom: 1.1vw;
         }
@@ -70,12 +59,16 @@
           overflow: hidden;
           .selectIcon {
             position: absolute;
-            bottom: 1vw;
-            left: 40%;
+            top: 1vw;
+            left: 5%;
             width: 5vw;
           }
         }
       }
+    }
+    .horiImg {
+      width: 32vw;
+      /* border: 10px solid blue !important; */
     }
   }
 }

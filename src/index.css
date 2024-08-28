@@ -10,9 +10,9 @@
 }
 
 @font-face {
-  font-family: 'amazon amber';
-  src: url('./assets/fonts/Amazon_Ember_Display_Medium.ttf');
-
+  font-family: "amazon amber";
+  src: url("./assets/fonts/Amazon_Ember_Bold.ttf");
+  font-weight: bold;
 }
 
 .silverForteFont {
@@ -25,7 +25,7 @@
 }
 
 :root {
-  --themeColor1: #ec6519;
+  --themeColor1: #fddf8d;
   --themeColor2: #fff;
   --themeColor3: #00a500;
   --textColor: #202021;
@@ -39,17 +39,13 @@
 }
 
 body {
-  background-image: url("./../src/assets/bg.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100dvh;
   overflow-x: hidden;
 }
 
 h1 {
   color: var(--textColor);
-  font-size: 6.5vw;
+  font-size: 7vw;
   text-align: center;
   line-height: 10vw;
 }
@@ -106,20 +102,20 @@ button {
 }
 
 .btn1 {
-  color: var(--textColor);
+  /* color: var(--textColor); */
   width: 35vw;
   font-size: 5.5vw;
   font-weight: 600;
   padding: 0.8vw 0;
   border: 0.3vw solid var(--textColor);
-  border-radius: 5vw;
-  /* background: linear-gradient(
-    to right,
-    var(--themeColor1) 0%,
-    var(--themeColor2) 40%,
-    var(--themeColor2) 60%,
-    var(--themeColor3) 100%
-  ); */
+  border-radius: 1.5vw;
+  color: #fff;
+  background-color: #333e47;
+}
+
+.btn1:disabled {
+  color: #333e4783;
+  background-color: transparent;
 }
 
 .btn2 {
