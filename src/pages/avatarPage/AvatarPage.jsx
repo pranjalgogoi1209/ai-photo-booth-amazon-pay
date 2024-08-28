@@ -95,13 +95,15 @@ export default function AvatarPage({
     // console.log("submitting selected avatar");
 
     setGeneratedImg("");
-    if (capturedImg && selectedImageIndex) {
+    console.log(capturedImg, selectedImageIndex);
+
+    if (capturedImg && selectedImageIndex >= 0) {
       base64(originalImg, (base64Data) => {
         // console.log("Base64 data:", base64Data);
         setSelectedImage(base64Data);
 
-        console.log("image", capturedImg);
-        console.log("choice", base64Data);
+        /*  console.log("image", capturedImg);
+        console.log("choice", base64Data); */
 
         try {
           console.log("log on try");
